@@ -1,0 +1,8 @@
+#!/usr/bin/make -f
+override_dh_install:
+	mkdir -p debian/config-nginx-bm-www/etc/nginx/sites-enabled
+	cp -r nginx debian/config-nginx-bm-www/etc/
+
+%:
+	dh $@
+

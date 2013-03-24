@@ -1,0 +1,8 @@
+Source: viter-conf
+Priority: optional
+Maintainer: Vitaly Zolotoy <vitaly.zolotoy@gmail.com>
+
+Package: viter-conf
+Priority: optional
+Architecture: all
+Description: nginx and node-ubic config for viter
