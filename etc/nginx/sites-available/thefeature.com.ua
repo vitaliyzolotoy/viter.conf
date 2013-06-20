@@ -1,27 +1,24 @@
 server {
     listen 80;
     server_name thefeature.com.ua;
+
     charset utf-8;
     autoindex on;
+    access_log /var/log/nginx/thefeature.com.ua.access.log;
+    error_log /var/log/nginx/thefeature.com.ua.error.log;
 
-    set $root /usr/lib/node_modules/viter;
+    set $root /var/www/thefeature.com.ua;
     root $root;
-
-    access_log /var/log/nginx/viter-access.log;
-    error_log /var/log/nginx/viter-error.log;
-
-    rewrite ^/([^?/.]+)(\?.*)?$         $scheme://$host/$1/$2   redirect;
-    rewrite ^/([^?]+/[^?/.]+)(\?.*)?$   $scheme://$host/$1/$2   redirect;
 
     location /favicon.ico {
         root $root;
     }
 
-    location /desktop.blocks/ {
+    location /blocks/ {
         root $root;
     }
 
-    location /desktop.bundles/ {
+    location /pages/ {
         root $root;
     }
 
@@ -38,4 +35,11 @@ server {
         proxy_redirect off;
     }
 
+}
+
+server {
+    listen 80;
+    server_name www.thefeature.com.ua;
+
+    rewrite ^/(.*) http://thefeature.com.ua permanent;
 }
