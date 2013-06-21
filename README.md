@@ -1,4 +1,4 @@
 viter-conf
 ==========
 
-nginx and node-ubic config for viter
+Nginx and Ubic configs for viter
