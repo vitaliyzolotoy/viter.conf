@@ -4,22 +4,19 @@ server {
 
     charset utf-8;
     autoindex on;
-    access_log /var/log/nginx/viter.access.log;
-    error_log /var/log/nginx/viter.error.log;
+    access_log /var/log/nginx/viter.www.access.log;
+    error_log /var/log/nginx/viter.www.error.log;
 
-    set $root /var/www/viter;
+    set $root /var/www/viter.www;
     root $root;
 
     location /favicon.ico {
         root $root;
     }
 
-    location /blocks/ {
+    location /freeze/ {
         root $root;
-    }
-
-    location /pages/ {
-        root $root;
+        expires max;
     }
 
     location / {
